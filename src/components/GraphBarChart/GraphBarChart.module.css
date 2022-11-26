@@ -1,0 +1,13 @@
+.containerBarChart{
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 500;
+    color: #74798C;
+    height: 320px;
+    width: 835px;
+    border-radius: 5px;
+    background-color: #FBFBFB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

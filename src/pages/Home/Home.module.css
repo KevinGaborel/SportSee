@@ -1,0 +1,28 @@
+.main{
+    background-color: white;
+    flex: 1;
+    padding: 90px;
+}
+.hello{
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 24px;
+    color: #000000;
+}
+.hello > span{
+    color: #FF0101;
+}
+.strToday{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+}
+.graphContainer{
+    display: flex;
+}
+.containerIconNutrition{
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
