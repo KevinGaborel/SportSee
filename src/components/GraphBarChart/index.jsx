@@ -1,25 +1,14 @@
-import { BarChart, Tooltip, CartesianGrid, XAxis, YAxis, Legend, Bar } from 'recharts';
+import { BarChart, Tooltip, CartesianGrid, XAxis, YAxis, Legend, Bar, ResponsiveContainer } from 'recharts';
 import styles from './GraphBarChart.module.css';
 
 function GraphBarChart({data}) {
-
-  const infos = {
-    day: data.map(data => new Date(data.day).getDate()),
-    weight: data.map(data => data.kilogram),
-    calories: data.map(data => data.calories)
-  };
-  
-  //console.log(infos);
-  //const dataBarChart = [{name: 'Page A', uv: 400, pv: 2400, amt: 2400}];
   
   const weightMax = Math.max(...data.map(value => value.kilogram));
   const weightMin = Math.min(...data.map(value => value.kilogram));
 
-  //console.log(weightMax, weightMin);
-
-  const dataBarChart = data.map((obj, index) => {
+  const dataBarChart = data.map((obj) => {
     const newData = {
-      name: new Date(obj.day).getDate(),
+      day: new Date(obj.day).getDate(),
       calories: obj.calories,
       weight: obj.kilogram, 
       kg: weightMax
@@ -27,43 +16,87 @@ function GraphBarChart({data}) {
     return newData;
   });
 
-  //console.log(dataBarChart);
-
-  //syntetiser un objet avec les données
-
+  const CustomTooltip = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className={styles.customTooltip} >
+          <p className={styles.label} >{`${payload[0].value}kg`}</p>
+          <p className={styles.label} >{`${payload[1].value}Kcal`}</p>
+        </div>
+      );
+    }
+  
+    return null;
+  };
   
   const renderBarChart = (
-    <BarChart width={789} height={274} data={dataBarChart}
-    margin={{ top: 0, right: 0, bottom: 0, left: 0 }} 
-    barGap={'8'}
-    barSize={7}
-
+    <BarChart data={dataBarChart}
+      margin={{ top: 0, right: 0, bottom: 0, left: 0 }} 
+      barGap={'8'}
+      barSize={7}
     >
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" stroke="#9B9EAC" />
-      <YAxis  dataKey="kg" orientation='right' domain={[weightMin - 1, weightMax + 1]} stroke="#9B9EAC" yAxisId="right" />
-      <YAxis  dataKey="calories" orientation='left' domain={['dataMin - 100', 'dataMax + 50']} stroke="#9B9EAC" yAxisId="left" hide />
 
-      <Tooltip />
+      <CartesianGrid strokeDasharray="2 2" vertical={false} />
+      <XAxis dataKey="day" stroke="#9B9EAC" tickSize={0} tickMargin={16} />
+
+      <YAxis  dataKey="kg" 
+        orientation='right' 
+        domain={[weightMin - 1, weightMax + 1]} 
+        stroke="#9B9EAC" 
+        yAxisId="right" 
+        tickCount={4} 
+        tickSize={0} 
+        tickMargin={45} 
+        axisLine={false} 
+      />
+
+      <YAxis  dataKey="calories" 
+        orientation='left' 
+        domain={['dataMin - 100', 'dataMax + 50']} 
+        stroke="#9B9EAC" 
+        yAxisId="left" hide 
+      />
+
+      <Tooltip offset={55}
+        cursor={{stroke: '#C4C4C480'}}
+        position={{y: -25}}
+        wrapperStyle={{outline: 'none'}}
+        content={<CustomTooltip />}
+   
+      />
+
       <Legend verticalAlign='top' 
         align='right' 
-        iconType='circle' 
-        iconSize='8' 
-        width="277" 
-        height='14' 
-        payload={[
-          {value: 'Poids (kg)', type: 'circle', id: 'ID01' },
-          {value: 'Calories brûlées (kCal)', type: 'circle', id: 'ID02' }
-        ]} 
-        />
-      <Bar dataKey="weight" yAxisId="right" fill="#282D30" />
-      <Bar dataKey="calories" yAxisId="left" fill="#E60000" />
+        iconSize={8}
+        width={277} 
+        height={14}
+        iconType='circle'
+        wrapperStyle={{color: '#74798C', top: '-64px'}}
+      />
+
+      <Bar dataKey="weight" 
+        yAxisId="right" 
+        name={"Poids (kg)"}
+        fill="#282D30"
+        radius={[3, 3, 0, 0]}
+      />
+
+      <Bar dataKey="calories" 
+        yAxisId="left" 
+        name={"Calories brûlées (kCal)"}
+        fill="#E60000" 
+        radius={[3, 3, 0, 0]}
+      />
+
     </BarChart>
   );
 
   return (
     <div className={styles.containerBarChart} >
-      {renderBarChart}
+      <h3 className={styles.title} >Activité quotidienne</h3>
+      <ResponsiveContainer height={150} >
+        {renderBarChart}
+      </ResponsiveContainer>
     </div>
   );
 }

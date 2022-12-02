@@ -1,7 +1,10 @@
 .main{
     background-color: white;
     flex: 1;
-    padding: 90px;
+    margin: 90px;
+}
+.head{
+    margin-bottom: 77px;
 }
 .hello{
     font-weight: 500;
@@ -17,12 +20,15 @@
     font-size: 18px;
     line-height: 24px;
 }
-.graphContainer{
+.dataContainer{
     display: flex;
+}
+.graphContainer{
+    width: 80%;
 }
 .containerIconNutrition{
     margin-left: 30px;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    justify-content: space-between;
 }
