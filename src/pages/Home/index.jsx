@@ -1,7 +1,7 @@
 import styles from './Home.module.css';
 import {USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE} from '../../datas/datas.js';
 import GraphBarChart from '../../components/GraphBarChart';
-import GraphLineChart from '../../components/GraphLineChart';
+import GraphAreaChart from '../../components/GraphAreaChart';
 import IconNutrition from '../../components/IconNutrition';
 import appleSvg from '../../assets/icons/apple.svg';
 import cheeseburgerSvg from '../../assets/icons/cheeseburger.svg';
@@ -24,7 +24,9 @@ function Home() {
         <div className={styles.graphContainer}>
           <GraphBarChart data={USER_ACTIVITY[0].sessions} />
           <div className={styles.dataFooter}>
-          <GraphLineChart data={USER_AVERAGE_SESSIONS[0].sessions} />
+          <GraphAreaChart data={USER_AVERAGE_SESSIONS[0].sessions} />
+          <GraphAreaChart data={USER_AVERAGE_SESSIONS[0].sessions} />
+          <GraphAreaChart data={USER_AVERAGE_SESSIONS[0].sessions} />
           </div>
         </div>
         <div className={styles.containerIconNutrition}>

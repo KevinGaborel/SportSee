@@ -26,6 +26,10 @@
 .graphContainer{
     width: 80%;
 }
+.dataFooter{
+    display: flex;
+    justify-content: space-between;
+}
 .containerIconNutrition{
     margin-left: 30px;
     display: flex;
