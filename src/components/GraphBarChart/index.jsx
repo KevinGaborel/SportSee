@@ -85,9 +85,9 @@ function GraphBarChart({data}) {
         verticalAlign='top' 
         align='right' 
         iconSize={8}
+        iconType="circle"
         width={277} 
         height={14}
-        iconType='circle'
         wrapperStyle={{color: '#74798C', top: '-64px'}}
       />
 

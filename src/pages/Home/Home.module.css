@@ -36,3 +36,28 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
+@media only screen and (max-width: 1000px) {
+    .dataFooter{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+@media only screen and (max-width: 1300px) {
+    .main{
+        margin: 90px 20px 90px 20px;
+    }
+    .dataContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .containerIconNutrition{
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-left: 0;
+    }
+    .graphContainer{
+        width: 100%;
+    }
+}

@@ -1,18 +1,47 @@
 .containerAreaChart{
     background-color: #FF0000;
     width: 32%;
-    height: 263px;
     border-radius: 5px;
+    position: relative;
+    min-width: 258px;
+    min-height: 263px;
 }
-.title, tspan{
-    color: #FFFFFF;
-    opacity: 0.5;
-    font-weight: 500;
-    line-height: 24px;
+.backgroundRight{
+    background: #000000;
+    mix-blend-mode: normal;
+    opacity: 0.1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 33%;
 }
 tspan{
     font-size: 12px;
 }
 .title{
+    font-weight: 500;
+    line-height: 24px;
+    color: #FFFFFF;
+    opacity: 0.5;
     font-size: 15px;
+    margin-top: 30px;
+    margin-left: 34px;
+    margin-right: 50px;
+    margin-bottom: 0;
+}
+.customTooltip{
+    background-color: white;
+    width: 39px;
+    height: 25px;
+    font-weight: 500;
+    font-size: 8px;
+    line-height: 24px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 1000px) {
+    .containerAreaChart{
+        margin-bottom: 30px;
+    }
 }
