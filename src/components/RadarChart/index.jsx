@@ -1,5 +1,5 @@
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
-import styles from './GraphRadarChart.module.css';
+import styles from './RadarChart.module.css';
 
 const GraphRadarChart = ({data, kind}) => {
 

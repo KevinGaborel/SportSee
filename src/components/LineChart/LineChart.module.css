@@ -1,4 +1,4 @@
-.containerAreaChart{
+.container{
     background-color: #FF0000;
     width: 32%;
     border-radius: 5px;
@@ -41,7 +41,7 @@ tspan{
 }
 
 @media only screen and (max-width: 1000px) {
-    .containerAreaChart{
+    .container{
         margin-bottom: 30px;
     }
 }

@@ -1,14 +1,12 @@
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend,   ResponsiveContainer
-  ,LineChart,
-  Line} from 'recharts';
-import styles from './GraphAreaChart.module.css';
+import {LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer} from 'recharts';
+import styles from './LineChart.module.css';
 
-const GraphAreaChart = ({data}) => {
+const GraphLineChart = ({data}) => {
     const tabDay = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
 
     console.log(data);
 
-    const dataAreaChart = data.map((obj, index) => {
+    const dataLineChart = data.map((obj, index) => {
         const newData = {
           day: tabDay[index],
           sessionLength: obj.sessionLength,
@@ -30,13 +28,13 @@ const GraphAreaChart = ({data}) => {
       };
 
     return (
-      <div className={styles.containerAreaChart} >
+      <div className={styles.container} >
         <div className={styles.backgroundRight} ></div>
 
         <h3 className={styles.title} >Durée moyenne des sessions</h3>
 
-        <ResponsiveContainer height={200} className={styles.container}>
-          <AreaChart data={dataAreaChart} 
+        <ResponsiveContainer height={200}>
+          <LineChart data={dataLineChart} 
             margin={{ top: 10, right: 0, bottom: 10, left: 0 }}
           >
               <XAxis 
@@ -61,20 +59,19 @@ const GraphAreaChart = ({data}) => {
                 content={<CustomTooltip />}
               />
 
-              <Area 
+              <Line 
                 strokeWidth={3}
                 type="monotone" 
                 dataKey="sessionLength" 
                 stroke="#ffffff" 
-                fill="#FF0C0C" 
-                unit='min'
+                dot={false}
                 activeDot={{ stroke: '#FF3333', strokeWidth: 5, r: 8 }}
               />
-          </AreaChart>
+          </LineChart>
         </ResponsiveContainer>
 
       </div>
     );
 }
 
-export default GraphAreaChart;
+export default GraphLineChart;

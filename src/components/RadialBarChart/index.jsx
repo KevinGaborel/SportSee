@@ -1,5 +1,5 @@
 import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts';
-import styles from './GraphRadialBarChart.module.css';
+import styles from './RadialBarChart.module.css';
 
 const GraphRadialBarChart = ({data}) => {
 

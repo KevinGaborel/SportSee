@@ -1,5 +1,5 @@
 import { BarChart, Tooltip, CartesianGrid, XAxis, YAxis, Legend, Bar, ResponsiveContainer } from 'recharts';
-import styles from './GraphBarChart.module.css';
+import styles from './BarChart.module.css';
 
 function GraphBarChart({data}) {
   

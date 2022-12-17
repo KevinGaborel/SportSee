@@ -1,9 +1,9 @@
 import styles from './Home.module.css';
 import {USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE} from '../../datas/datas.js';
-import GraphBarChart from '../../components/GraphBarChart';
-import GraphAreaChart from '../../components/GraphAreaChart';
-import GraphRadarChart from '../../components/GraphRadarChart';
-import GraphRadialBarChart from '../../components/GraphRadialBarChart';
+import BarChart from '../../components/BarChart';
+import LineChart from '../../components/LineChart';
+import RadarChart from '../../components/RadarChart';
+import RadialBarChart from '../../components/RadialBarChart';
 import IconNutrition from '../../components/IconNutrition';
 import appleSvg from '../../assets/icons/apple.svg';
 import cheeseburgerSvg from '../../assets/icons/cheeseburger.svg';
@@ -24,11 +24,11 @@ function Home() {
 
       <div className={styles.dataContainer}>
         <div className={styles.graphContainer}>
-          <GraphBarChart data={USER_ACTIVITY[0].sessions} />
+          <BarChart data={USER_ACTIVITY[0].sessions} />
           <div className={styles.dataFooter}>
-          <GraphAreaChart data={USER_AVERAGE_SESSIONS[0].sessions} />
-          <GraphRadarChart data={USER_PERFORMANCE[0].data} kind={USER_PERFORMANCE[0].kind} />
-          <GraphRadialBarChart data={USER_MAIN_DATA[0].todayScore} />
+          <LineChart data={USER_AVERAGE_SESSIONS[0].sessions} />
+          <RadarChart data={USER_PERFORMANCE[0].data} kind={USER_PERFORMANCE[0].kind} />
+          <RadialBarChart data={USER_MAIN_DATA[0].todayScore} />
           </div>
         </div>
         <div className={styles.containerIconNutrition}>
