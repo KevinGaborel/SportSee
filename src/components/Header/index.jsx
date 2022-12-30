@@ -21,7 +21,7 @@ function  Header() {
                 </li>
 
                 <li className={styles.li} >
-                    <Link to={'/profil'} className={styles.link} >Communauté</Link>
+                    <Link to={'/communaute'} className={styles.link} >Communauté</Link>
                 </li>
             </ul>
         </nav>

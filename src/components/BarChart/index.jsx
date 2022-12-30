@@ -1,4 +1,5 @@
 import { BarChart, Tooltip, CartesianGrid, XAxis, YAxis, Legend, Bar, ResponsiveContainer } from 'recharts';
+import PropTypes from "prop-types";
 import styles from './BarChart.module.css';
 import Loader from "../Loader";
 
@@ -123,6 +124,16 @@ function GraphBarChart({data}) {
       </ResponsiveContainer>
     </div>
   );
-}
+};
+
+GraphBarChart.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.string,
+      kilogram: PropTypes.number,
+      calories: PropTypes.number
+    })
+  )
+};
 
 export default GraphBarChart;

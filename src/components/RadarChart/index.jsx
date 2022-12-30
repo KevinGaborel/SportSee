@@ -1,4 +1,5 @@
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
+import PropTypes from "prop-types";
 import styles from './RadarChart.module.css';
 import Loader from "../Loader";
 
@@ -49,5 +50,15 @@ const GraphRadarChart = ({data, kind}) => {
       </div>
     );
 }
+
+GraphRadarChart.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.number,
+      kind: PropTypes.number
+    })
+  ),
+  kind: PropTypes.objectOf(PropTypes.string)
+};
 
 export default GraphRadarChart;

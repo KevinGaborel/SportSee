@@ -1,11 +1,11 @@
 import {LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer} from 'recharts';
+import PropTypes from "prop-types";
 import styles from './LineChart.module.css';
 import Loader from '../Loader';
 
 const GraphLineChart = ({data}) => {
   const tabDay = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
   let renderLineChart;
-
 
   if (data !== undefined){
     const dataLineChart = data.map((obj, index) => {
@@ -80,5 +80,14 @@ const GraphLineChart = ({data}) => {
       </div>
     );
 }
+
+GraphLineChart.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.number,
+      sessionLength: PropTypes.number
+    })
+  )
+};
 
 export default GraphLineChart;

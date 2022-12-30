@@ -1,7 +1,6 @@
 import styles from './Dashboard.module.css';
 import { useEffect, useState } from 'react';
 
-import {USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE} from '../../datas/datas.js';
 import { getDatasApi, getDatasMocked } from "../../services/api.js";
 import { useParams } from "react-router-dom";
 
@@ -44,38 +43,22 @@ function Dashboard() {
   useEffect(()  => {
     const getFunctionData = async () => {
   
-      if (api){
-        const infos = await getDatasApi(id);
-        if (infos.user.data.score){
-          const todayScore = infos.user.data.score;
-          infos.user.data.todayScore = todayScore;
-        }
+      const infos = api ? await getDatasApi(id) : await getDatasMocked(id);
 
-        setUserData(infos.user.data);
-        setActivityData(infos.activity.data);
-        setPerfData(infos.perf.data);
-        setAverageData(infos.average.data);
-
-      } else{
-        const infos = await getDatasMocked(id);
-        if (infos.user.data.score){
-          const todayScore = infos.user.data.score;
-          infos.user.data.todayScore = todayScore;
-        }
-        
-        setUserData(infos.user.data);
-        setActivityData(infos.activity.data);
-        setPerfData(infos.perf.data);
-        setAverageData(infos.average.data);
-        
+      if (infos.user.data.score){
+        const todayScore = infos.user.data.score;
+        infos.user.data.todayScore = todayScore;
       }
+
+      setUserData(infos.user.data);
+      setActivityData(infos.activity.data);
+      setPerfData(infos.perf.data);
+      setAverageData(infos.average.data);
     };
 
     getFunctionData();
 
   }, []);
-
-  console.log(userData);
 
   return (
     <main className={styles.main} >

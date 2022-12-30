@@ -64,4 +64,8 @@ const GraphRadialBarChart = ({data}) => {
     );
 }
 
+GraphRadialBarChart.propTypes = {
+  data: PropTypes.number
+};
+
 export default GraphRadialBarChart;
