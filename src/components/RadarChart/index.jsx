@@ -1,59 +1,50 @@
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 import styles from './RadarChart.module.css';
+import Loader from "../Loader";
 
 const GraphRadarChart = ({data, kind}) => {
+  let renderRadarChart;
 
-    console.log(data, kind);
+  if (data !== undefined && kind !== undefined){
 
-    const dataRadarChart = data.map((obj, index) => {
-        switch (obj.kind) {
-          case 1:
-            obj.kind = "Cardio";
-            break;
-          case 2: 
-            obj.kind = "Energie";
-            break;
-          case 3:
-            obj.kind = "Endurance";
-            break;
-          case 4:
-            obj.kind = "Force";
-            break;
-          case 5:
-            obj.kind = "Vitesse";
-            break;
-          case 6:
-            obj.kind = "Intensité";
-            break;
-          default:
-            break;
-        }
-
-        const newData = {
-          kind: obj.kind,
-          value: obj.value,
-        }
-        return newData;
-      });
+    const dataRadarChart = data.map(obj => {
+      kind = [
+        "Cardio", "Energie", "Endurance", "Force", "Vitesse", "Intensité"
+      ]
+      
+      const newData = {
+        kind: kind[obj.kind - 1],
+        value: obj.value,
+      }
+  
+      return newData;
+    });
+  
+    renderRadarChart = (
+      <RadarChart 
+        data={dataRadarChart} 
+        margin={{ top: 10, right: 0, bottom: 10, left: 0 }}
+      >
+        
+        <PolarGrid />
+        <PolarAngleAxis 
+          dataKey="kind" 
+          stroke={"#ffffff"}
+          tickLine={false}   
+        />
+        <Radar 
+          dataKey="value" 
+          fill='#be0e0f' 
+          opacity={0.9} 
+        />
+      </RadarChart>
+    );
+  }
 
     return (
       <div className={styles.container} >
-        <ResponsiveContainer height={200} >
-          <RadarChart data={dataRadarChart} 
-            margin={{ top: 10, right: 0, bottom: 10, left: 0 }}
-          >
-            <PolarGrid />
-            <PolarAngleAxis 
-              dataKey="kind" 
-              stroke={"#ffffff"}
-              tickLine={false}   
-            />
-            <Radar 
-              dataKey="value" 
-              fill='#be0e0f' 
-              opacity={0.9} 
-            />
-          </RadarChart>
+        <ResponsiveContainer height={200} className={styles.responsiveContainer} >
+          {renderRadarChart ? renderRadarChart : < Loader />}
         </ResponsiveContainer>
       </div>
     );

@@ -5,7 +5,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import './index.css';
-import Home from './pages/Home';
+import Home from "./pages/Home";
+import Dashboard, {loader as dashboardLoader} from './pages/Dashboard';
 import ErrorPage from "./pages/Error";
 import Root from "./pages/Root";
 
@@ -17,8 +18,13 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />,
+        element: <Home />
       },
+      {
+        path: "/profil/:id/:api",
+        element: <Dashboard />,
+        loader: dashboardLoader
+      }
     ]
   },
 ]);

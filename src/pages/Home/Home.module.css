@@ -1,63 +1,28 @@
 .main{
-    background-color: white;
-    flex: 1;
-    margin: 90px;
-}
-.head{
-    margin-bottom: 77px;
-}
-.hello{
-    font-weight: 500;
-    font-size: 48px;
-    line-height: 24px;
-    color: #000000;
-}
-.hello > span{
-    color: #FF0101;
-}
-.strToday{
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 24px;
-}
-.dataContainer{
+    width: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 91px);
 }
-.graphContainer{
+.dataLink{
+    background-color: #FBFBFB;
+    border-radius: 10px;
     width: 80%;
-}
-.dataFooter{
-    display: flex;
-    justify-content: space-between;
-}
-.containerIconNutrition{
-    margin-left: 30px;
+    height: 400px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
 }
-
-@media only screen and (max-width: 1000px) {
-    .dataFooter{
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+.section{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    margin: 20px;
 }
-@media only screen and (max-width: 1300px) {
-    .main{
-        margin: 90px 20px 90px 20px;
-    }
-    .dataContainer{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    .containerIconNutrition{
-        flex-direction: row;
-        flex-wrap: wrap;
-        margin-left: 0;
-    }
-    .graphContainer{
-        width: 100%;
-    }
+.linkGroup{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
