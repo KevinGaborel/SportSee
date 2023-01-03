@@ -1,6 +1,13 @@
 import styles from './IconNutrition.module.css';
 import PropTypes from "prop-types";
 
+/**
+ * It is a function that takes an object as a prop and returns a icon nutrition
+ * @param {object} props  data from a user to icon nutrition
+ * @param {number} props.data number that represents a nutritional value
+ * @return {JSX.Element} Icon nutrition
+ */
+
 function IconNutrition({icon, color, data, type}) {
   let measure;
   

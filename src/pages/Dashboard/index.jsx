@@ -73,7 +73,7 @@ function Dashboard() {
           <BarChart data={activityData !== undefined ? activityData.sessions : undefined} />
           <div className={styles.dataFooter}>
             <LineChart data={averageData !== undefined ? averageData.sessions : undefined} />
-            <RadarChart data={perfData !== undefined ? perfData.data : undefined} kind={perfData !== undefined ? perfData.kind : undefined} />
+            <RadarChart data={perfData !== undefined ? perfData.data : undefined} />
             <RadialBarChart data={userData !== undefined ? userData.todayScore : undefined} />
           </div>
         </div>

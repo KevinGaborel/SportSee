@@ -3,6 +3,17 @@ import PropTypes from "prop-types";
 import styles from './BarChart.module.css';
 import Loader from "../Loader";
 
+/**
+ * It is a function that takes an object as a prop and returns a Bar chart
+ * @param {object} props  data from a activity to Bar Chart
+ * @param {array} props.data table of object, daily activity
+ * @param {object} props.data[0] object summarizing the day's activity
+ * @param {string} props.data[0].day string representing the day of the activity
+ * @param {number} props.data[0].kilogram number that represents the user's weight on that day, in kilograms
+ * @param {number} props.data[0].calories number, representing calories burned during activity
+ * @return {JSX.Element} Bar Chart
+ */
+
 function GraphBarChart({data}) {
   let renderBarChart;
 

@@ -3,6 +3,16 @@ import PropTypes from "prop-types";
 import styles from './LineChart.module.css';
 import Loader from '../Loader';
 
+/**
+ * It is a function that takes an object as a prop and returns a Line Chart
+ * @param {object} props  data from a average session length to Line Chart
+ * @param {array} props.data table of object, average daily session length
+ * @param {object} props.data[0] object representing the average activity of the day
+ * @param {number} props.data[0].day string representing the day of the activity
+ * @param {number} props.data[0].sessionLength number that represents the average duration of the day's session
+ * @return {JSX.Element} Line Chart
+ */
+
 const GraphLineChart = ({data}) => {
   const tabDay = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
   let renderLineChart;

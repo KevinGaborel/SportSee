@@ -3,6 +3,13 @@ import styles from './RadialBarChart.module.css';
 import Loader from "../Loader";
 import PropTypes from 'prop-types';
 
+/**
+ * It is a function that takes an object as a prop and returns a Radial chart
+ * @param {object} props  data from a user to Radial Chart
+ * @param {number} props.data number, user score
+ * @return {JSX.Element} Radial Chart
+ */
+
 const GraphRadialBarChart = ({data}) => {
   let renderRadialChart;
   let renderScore;
