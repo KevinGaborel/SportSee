@@ -1,0 +1,21 @@
+{
+    "source": {
+      "include": ["src/components"],
+      "includePattern": ".jsx$",
+      "excludePattern": "(node_modules/|docs/|public)"
+    },
+    "templates": {
+        "default": {
+            "staticFiles": {
+                "include": [
+                    "./src/components"
+              ]
+            }
+          }
+    },
+    "opts": {
+      "recurse": true,
+      "encoding": "utf8",
+      "destination": "./docs/"
+    }
+  }
