@@ -1,9 +1,8 @@
 .container{
     background-color: #FF0000;
-    width: 32%;
     border-radius: 5px;
     position: relative;
-    min-width: 258px;
+    width: 258px;
     min-height: 263px;
 }
 .backgroundRight{

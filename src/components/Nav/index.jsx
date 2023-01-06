@@ -16,15 +16,15 @@ function  Nav() {
             </li>
 
             <li className={styles.li} >
-                <Link to={'/profil'} className={styles.link} > <BtnSport img={imgSwim} > </BtnSport> </Link> 
+                <Link to={'/'} className={styles.link} > <BtnSport img={imgSwim} > </BtnSport> </Link> 
             </li>
 
             <li className={styles.li} >
-                <Link to={'/reglage'} className={styles.link} > <BtnSport img={imgRide} > </BtnSport> </Link>
+                <Link to={'/'} className={styles.link} > <BtnSport img={imgRide} > </BtnSport> </Link>
             </li>
 
             <li className={styles.li} >
-                <Link to={'/profil'} className={styles.link} > <BtnSport img={imgFit} > </BtnSport> </Link>
+                <Link to={'/'} className={styles.link} > <BtnSport img={imgFit} > </BtnSport> </Link>
             </li>
         </ul>
 
