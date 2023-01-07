@@ -1,6 +1,6 @@
 {
     "source": {
-      "include": ["src/components"],
+      "include": ["src/components", "./src/services"],
       "includePattern": ".jsx$",
       "excludePattern": "(node_modules/|docs/|public)"
     },
@@ -8,7 +8,7 @@
         "default": {
             "staticFiles": {
                 "include": [
-                    "./src/components"
+                    
               ]
             }
           }

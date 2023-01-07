@@ -32,7 +32,6 @@ export async function loader({ request, params }) {
 function Dashboard() {
 
   let { id, api } = useParams();
-  id = parseInt(id);
   api = api === "true" ? true : false;
 
   const [userData, setUserData] = useState();
@@ -45,15 +44,10 @@ function Dashboard() {
   
       const infos = api ? await getDatasApi(id) : await getDatasMocked(id);
 
-      if (infos.user.data.score){
-        const todayScore = infos.user.data.score;
-        infos.user.data.todayScore = todayScore;
-      }
-
-      setUserData(infos.user.data);
-      setActivityData(infos.activity.data);
-      setPerfData(infos.perf.data);
-      setAverageData(infos.average.data);
+      setUserData(infos.user);
+      setActivityData(infos.activity);
+      setPerfData(infos.perf);
+      setAverageData(infos.average);
     };
 
     getFunctionData();
@@ -74,7 +68,7 @@ function Dashboard() {
           <div className={styles.dataFooter}>
             <LineChart data={averageData !== undefined ? averageData.sessions : undefined} />
             <RadarChart data={perfData !== undefined ? perfData.data : undefined} />
-            <RadialBarChart data={userData !== undefined ? userData.todayScore : undefined} />
+            <RadialBarChart data={userData !== undefined ? userData.score : undefined} />
           </div>
         </div>
 
