@@ -31,7 +31,14 @@ export const getDatasApi = async (id) => {
       const averageData = new Average(average.data.sessions, average.data.userId);
       const perfData = new Perf(perf.data.data, perf.data.kind, perf.data.userId);
 
-      return { user: userData, activity: activityData, average: averageData, perf: perfData };
+      const result = {
+        user: userData.validate() ? userData : undefined , 
+        activity: activityData.validate() ? activityData : undefined , 
+        average: averageData.validate() ? averageData : undefined ,
+        perf: perfData.validate() ? perfData : undefined ,
+      }
+
+      return result;
     })
     
     .catch((error) => {
@@ -79,7 +86,14 @@ export const getDatasMocked = (id) => {
   const averageData = new Average(datas.average.sessions, datas.average.userId);
   const perfData = new Perf(datas.perf.data, datas.perf.kind, datas.perf.userId);
 
-  return { user: userData, activity: activityData, average: averageData, perf: perfData };
+  const result = {
+    user: userData.validate() ? userData : undefined , 
+    activity: activityData.validate() ? activityData : undefined , 
+    average: averageData.validate() ? averageData : undefined ,
+    perf: perfData.validate() ? perfData : undefined ,
+  }
+
+  return result;
  };
 
 getDatasMocked.propTypes = {
