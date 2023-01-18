@@ -1,7 +1,6 @@
 ## Project prerequisites:
 
-- Npm 6+ || Yarn 0.25+
-- Node.js >=16
+- Node.js >= 12.18
 - Git
 - A text editor (Visual Studio Code, Sublime Text, Vim, Atom etc...)
 
